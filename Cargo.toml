@@ -4,6 +4,7 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
+diagnostics = { path = "crates/diagnostics" }
 
 [workspace]
 members = ["crates/diagnostics", "crates/syntax"]

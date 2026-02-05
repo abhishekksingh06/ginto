@@ -1,6 +1,8 @@
+mod renderer;
 mod source;
 mod span;
 
+pub use renderer::*;
 pub use source::*;
 pub use span::*;
 
@@ -10,6 +12,17 @@ pub enum Severity {
     Warning,
     Note,
     Help,
+}
+
+impl Severity {
+    fn as_str(&self) -> &'static str {
+        match self {
+            Severity::Error => "error",
+            Severity::Warning => "warning",
+            Severity::Note => "note",
+            Severity::Help => "help",
+        }
+    }
 }
 
 #[derive(Debug, Clone, PartialEq, PartialOrd)]
