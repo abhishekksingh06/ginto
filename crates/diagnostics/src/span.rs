@@ -1,6 +1,6 @@
 use std::ops::Range;
 
-#[derive(Debug, Clone, Copy, PartialEq, PartialOrd, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, PartialOrd, Eq, Ord)]
 pub struct BytePos(pub usize);
 
 #[derive(Debug, Clone, Copy, PartialEq, PartialOrd)]
