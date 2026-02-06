@@ -3,16 +3,16 @@
 version = 4
 
 [[package]]
-name = "diagnostics"
+name = "penguin"
 version = "0.1.0"
 
 [[package]]
-name = "penguin"
+name = "penguin_diagnostics"
 version = "0.1.0"
-dependencies = [
- "diagnostics",
-]
 
 [[package]]
 name = "syntax"
 version = "0.1.0"
+dependencies = [
+ "penguin_diagnostics",
+]

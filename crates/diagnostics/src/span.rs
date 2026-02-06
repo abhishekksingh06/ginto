@@ -11,7 +11,7 @@ pub struct Span {
 
 impl Span {
     pub fn new(start: BytePos, end: BytePos) -> Self {
-        debug_assert!(end <= start);
+        debug_assert!(start <= end);
         Self { start, end }
     }
 

@@ -69,10 +69,10 @@ pub struct Diagnostic {
 }
 
 impl Diagnostic {
-    pub fn new(severity: Severity, message: impl Into<String>) -> Self {
+    pub fn new(severity: Severity) -> Self {
         Self {
             severity,
-            message: message.into(),
+            message: String::new(),
             code: None,
             labels: Vec::new(),
             notes: Vec::new(),
@@ -80,20 +80,9 @@ impl Diagnostic {
         }
     }
 
-    pub fn error(message: impl Into<String>) -> Self {
-        Self::new(Severity::Error, message)
-    }
-
-    pub fn warning(message: impl Into<String>) -> Self {
-        Self::new(Severity::Warning, message)
-    }
-
-    pub fn note(message: impl Into<String>) -> Self {
-        Self::new(Severity::Note, message)
-    }
-
-    pub fn help(message: impl Into<String>) -> Self {
-        Self::new(Severity::Help, message)
+    pub fn with_message(mut self, message: impl Into<String>) -> Self {
+        self.message = message.into();
+        self
     }
 
     pub fn with_code(mut self, code: impl Into<String>) -> Self {
@@ -125,4 +114,8 @@ impl Diagnostic {
         self.help = Some(help.into());
         self
     }
+}
+
+pub trait DiagnosticConvertible {
+    fn into_diagnostic(self) -> Diagnostic;
 }
