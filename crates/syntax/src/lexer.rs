@@ -1,4 +1,4 @@
-use penguin_diagnostics::{Diagnostic, DiagnosticConvertible, FileId, Label, Severity, Span};
+use ginto_diagnostics::{Diagnostic, DiagnosticConvertible, FileId, Label, Severity, Span};
 
 use crate::{Token, TokenKind};
 
@@ -272,6 +272,8 @@ impl Lexer {
                     "mod" => TokenKind::Mod,
                     "fn" => TokenKind::Fn,
                     "not" => TokenKind::Not,
+                    "u64" => TokenKind::U64,
+                    "i64" => TokenKind::I64,
                     "true" => TokenKind::BoolLiteral(true),
                     "false" => TokenKind::BoolLiteral(false),
                     _ => TokenKind::Ident(ident),

@@ -1,6 +1,6 @@
 use core::fmt;
 
-use penguin_diagnostics::Spanned;
+use ginto_diagnostics::Spanned;
 
 #[derive(Debug, Clone, PartialEq, PartialOrd)]
 pub enum TokenKind {
@@ -16,6 +16,8 @@ pub enum TokenKind {
     Mod,
     Not,
     Fn,
+    U64,
+    I64,
 
     // Operators
     Plus,  // +
@@ -83,6 +85,8 @@ impl fmt::Display for TokenKind {
             TokenKind::Indent => write!(f, "`indent`"),
             TokenKind::Dedent => write!(f, "dedent"),
             TokenKind::Arrow => write!(f, "`->`"),
+            TokenKind::U64 => write!(f, "u64"),
+            TokenKind::I64 => write!(f, "i64"),
         }
     }
 }
